@@ -1,0 +1,17 @@
+pip install scrapy-splash
+
+
+
+
+?2. scrapy-splash使用的是Splash HTTP API， 所以需要一个splash instance，一般采用docker运行splash，所以需要安装docker。不同系统的安装命令会不同，
+sudo apt-get install docker  docker-engine
+
+
+
+开启docker服务，拉取splash镜像（pull the image）：
+sudo service docker start
+
+sudo docker pull scrapyinghub/splash
+
+
+开启容器（start the container）：

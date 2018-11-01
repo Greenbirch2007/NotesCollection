@@ -1,0 +1,147 @@
+sudo 是管理员权限
+
+
+
+1. deepin安装mongodb（没有那么简单）
+  sudo aptitude install mongodb
+
+
+2.deepin安装mysql
+
+
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install libmysqlclient-dev
+
+
+sudo netstat -tap|grep mysql 
+
+
+mysql -uroot -p
+
+3. 安装 redis
+
+在 Ubuntu 系统安装 Redis 可以使用以下命令:
+$sudo apt-get update
+$sudo apt-get install redis-server
+启动 Redis
+$ redis-server
+查看 redis 是否启动？
+$ redis-cli
+以上命令将打开以下终端：
+redis 127.0.0.1:6379>
+127.0.0.1 是本机 IP ，6379 是 redis 服务端口。现在我们输入 PING 命令。
+redis 127.0.0.1:6379> ping
+PONG
+
+http://www.runoob.com/redis/redis-conf.html
+
+安装Redis的Python 客户端
+pip install redis
+
+
+4. 安装webstorm
+
+sudo apt-get install webstorm
+
+5. 安装firefox
+
+sudo apt-get install firefox
+
+6.安装Pycharm
+
+下载
+cd ~/Downloads
+ls pycharm*
+tar -xvzf pycharm-professional-2016.2.3.tar.gz -C ~
+cd ~
+ls
+cd pycharm-2016.2.3/bin
+sh pycharm.sh &
+
+7. Deepin下安装nginx
+
+.安装gcc g++的依赖库
+
+[plain] view plain copy
+sudo apt-get install build-essential  
+sudo apt-get install libtool  
+2.安装pcre依赖库
+[plain] view plain copy
+sudo apt-get install libpcre3 libpcre3-dev  
+3.安装zlib依赖库
+[plain] view plain copy
+sudo apt-get install zlib1g-dev  
+4.安装ssl依赖库
+[plain] view plain copy
+sudo apt-get install openssl  
+
+5.安装nginx
+[plain] view plain copy
+#下载最新版本：  
+wget http://nginx.org/download/nginx-1.11.3.tar.gz  
+#解压：  
+tar -zxvf nginx-1.11.3.tar.gz  
+#进入解压目录：  
+cd nginx-1.11.3  
+#配置：  
+./configure --prefix=/usr/local/nginx   
+#编辑nginx：  
+make  
+注意：这里可能会报错，提示“pcre.h No such file or directory”,具体详见：http://stackoverflow.com/questions/22555561/error-building-fatal-error-pcre-h-no-such-file-or-directory  
+需要安装 libpcre3-dev,命令为：sudo apt-get install libpcre3-dev  
+#安装nginx：  
+sudo make install  
+#启动nginx：  
+sudo /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf  
+注意：-c 指定配置文件的路径，不加的话，nginx会自动加载默认路径的配置文件，可以通过 -h查看帮助命令。  
+#查看nginx进程：  
+ps -ef|grep nginx  
+
+
+6. 安装 mysqlworkbench
+
+对于 Debian 7：
+
+$ wget http://dev.mysql.com/get/mysql-apt-config_0.3.3-1debian7_all.deb
+$ sudo dpkg -i mysql-apt-config_0.3.3-1debian7_all.deb
+当你安装DEB文件时，你会看到下面的配置菜单，并且选择配置那个MySQL产品
+
+
+选择“Utilities”。完成配置后，选择“Apply”去保存配置。然后，更新包索引，并且安装Workbench。
+
+$ sudo apt-get update
+$ sudo apt-get install mysql-workbench
+
+7. 安装selenium chromedriver(驱动)linux版本（需要找镜像）
+
+方法同firefox相同，但是设计到谷歌浏览器版本问题，加上可以被封，暂时不考虑，通通转向火狐去解决！
+
+8. 安装selenium firefox(驱动)linux版本（需要找镜像）
+
+到 python 官网去找selenium ，附件中有相关浏览器的驱动，下载后解压到 /usr/bin/ 路径中
+命令行  cp 驱动 /usr/bin/
+
+
+9.  安装redsi可视化工具  redis-desktop-manager
+
+sudo apt-get install redis-desktop-manager
+
+连接相应的模块，受制于命令行的python3 和 python2的全新分配（所以先解决这个！突破瓶颈）
+
+deepin  明确使用版本
+
+sudo python2 -m pip install sth
+
+sudo python3 -m pip install sth
+
+
+10. python 连接 mysql (mysql重新设置之后都要刷新一下权限，flush privileges;)
+11. python 连接 mongodb
+12. python 连接 redis
+13. 安装docker
+  
+  
+14.安装 memcached
+
+sudo apt-get install memcached

@@ -1,0 +1,106 @@
+import pandas as pd
+from sqlalchemy import create_engine
+import pymysql
+frame = pd.DataFrame(...)
+engine = create_engine('mysql+pymysql://root:password@localhost:3306/databasename?charset=utf8')
+pd.io.sql.to_sql("frame",engine,schema="database",if_exists = "append")
+或frame.to_sql("dataframe",engine)
+pd.read_sql_table("dataframe",engine)
+
+pd.read_sql_query("select * from dataframe where apr > 0.5",engine)
+
+
+
+MongoDB 相关操作
+
+#导入相应的包
+import pymongo
+import pandas as pd
+from pandas import Series,DataFrame
+#连接数据库
+client = pymongo.MongoClient('localhost',27017)
+ganji = client['ganji']
+info = ganji['info']
+#加载数据
+data = DataFrame(list(info.find()))
+#删除不想要的字段
+data_new = data.T.drop(['_id','url','title'])
+print(data_new)
+
+#-*- coding:utf-8 -*-
+import sys
+import pandas as pd
+import json
+from pymongo import MongoClient
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+class MongoBase:
+    def __init__(self,collection):
+        self.collection=collection
+        self.OpenDB()
+    def OpenDB(self):
+        user='******'
+        passwd='******'
+        host='******'
+        port='******'
+        auth_db='******'
+        uri = "mongodb://"+user+":"+passwd+"@"+host+":"+port+"/"+auth_db+"?authMechanism=SCRAM-SHA-1"
+        self.con = MongoClient(uri, connect=False)
+        self.db=self.con['wangdong']
+        self.collection=self.db[self.collection]
+    def closeDB(self):
+        self.con.close()
+
+
+if __name__ =='__main__':
+    mongo=MongoBase('test')
+    dicts = {'one': [1, 2, 3], 'two': [2, 3, 4], 'three': [3, 4, 5]}
+    df = pd.DataFrame(dicts)
+    mongo.collection.insert(json.loads(df.T.to_json()).values())
+    mongo.closeDB()
+    print json.loads(df.T.to_json()).values()
+
+
+import pandas as pd
+from pymongo import MongoClient
+
+
+def _connect_mongo(host, port, username, password, db):
+    """ A util for making a connection to mongo """
+
+    if username and password:
+        mongo_uri = 'mongodb://%s:%s@%s:%s/%s' % (username, password, host, port, db)
+        conn = MongoClient(mongo_uri)
+    else:
+        conn = MongoClient(host, port)
+
+
+    return conn[db]
+
+
+def read_mongo(db, collection, query={}, host='localhost', port=27017, username=None, password=None, no_id=True):
+    """ Read from Mongo and Store into DataFrame """
+
+    # Connect to MongoDB
+    db = _connect_mongo(host=host, port=port, username=username, password=password, db=db)
+
+    # Make a query to the specific DB and Collection
+    cursor = db[collection].find(query)
+
+    # Expand the cursor and construct the DataFrame
+    df =  pd.DataFrame(list(cursor))
+
+    # Delete the _id
+    if no_id:
+        del df['_id']
+
+    return df
+
+if __name__ =='__main__':
+    df = read_mongo('zhihu','questions',{})
+    print df
+ 
+
+
+

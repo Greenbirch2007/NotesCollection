@@ -1,0 +1,31 @@
+
+
+1.Python 不同版本，全部提前安装 python2.7 3.4 3.5 3.6 3.7
+
+
+sudo apt-get install pythonxx
+
+
+2. 查看相应Python版本的安装路径 
+
+whereis python   (寻找/usr/bin/pythonxx~~)
+
+
+
+3.使用之前安装的virtualenv，在独立的文件夹中创建需要的特定的Python版本的虚拟环境！
+
+比如在myproject文件夹中
+
+
+
+virtualenv -p /usr/bin/python3.6  myproject
+
+
+至此需要的python版本的虚拟环境就搭建好了！
+
+4.进入虚拟环境包中，source activate 启动虚拟环境
+
+5. 在特定虚拟环境下 pip install pipenv
+6.pipenv install 
+7. pipenv install requests 
+8.pipenv shell

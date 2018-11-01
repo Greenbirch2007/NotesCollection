@@ -1,0 +1,29 @@
+sudo apt install lamp
+这个是最简单的方式
+
+
+安装apache2，mysql-server，php：
+sudo apt install apache2 libapache2-mod-php mysql-server
+安装额外的php模块：
+sudo apt install php-xxx
+
+例如：
+sudo apt install php-mbstring
+
+ubuntu 16.04 LTS
+
+安装额外的apache模块：
+
+ 
+
+
+  依赖:  但是它将不会被安装
+        依赖:  但是它将不会被安装
+        依赖:  但是它将不会被安装
+        依赖:  但是它将不会被安装
+        依赖:  但是它将不会被安装
+        依赖: 但是它将不会被安装
+        依赖: 但是它将不会被安装
+        依赖:  但是它将不会被安装
+        依赖: 
+
