@@ -8,8 +8,11 @@ sudo 是管理员权限
 
 2.deepin安装mysql
 
+直接使用
 
-sudo apt-get install mysql-server
+sudo apt-get install mysql-server-5.6
+
+不要使用如下命令
 sudo apt-get install mysql-client
 sudo apt-get install libmysqlclient-dev
 
