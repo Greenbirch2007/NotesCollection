@@ -1,0 +1,32 @@
+
+使用pip快速的安装包
+
+
+
+Python pip 国内主要镜像
+序号	所属单位	路径
+1	 豆瓣	http://pypi.douban.com/simple/
+2	阿里	http://mirrors.aliyun.com/pypi/simple/
+3	 华中理工大学	http://pypi.hustunique.com/simple/
+4	山东理工大学	http://pypi.sdutlinux.org/simple/ 
+5	中国科学技术大学	http://pypi.mirrors.ustc.edu.cn/simple/
+6	清华	https://pypi.tuna.tsinghua.edu.cn/simple
+使用办法
+1 添加“-i”或“--index”参数：
+
+pip install  包名 -i 所选路径
+
+例如 pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+2 配制成默认的
+
+在“C:\Users\用户名\”目录下创建“pip”目录，然后再“pip”目录下创建“pip.ini”文件（注意：使用UTF-8 无BOM格式编码）；
+“pip.ini”文件内容：
+
+[global]
+
+index-url=http://mirrors.aliyun.com/pypi/simple/   #你镜像的路径
+
+[install]
+
+trusted-host=mirrors.aliyun.com
