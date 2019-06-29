@@ -18,7 +18,7 @@ whereis python   (寻找/usr/bin/pythonxx~~)
 
 
 
-virtualenv -p /usr/bin/python3.5  PYENV
+virtualenv -p /usr/bin/python3  PYENV
 
 
 至此需要的python版本的虚拟环境就搭建好了！

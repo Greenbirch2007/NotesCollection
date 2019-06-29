@@ -1,0 +1,23 @@
+python项目中必须包含一个 requirements.txt 文件，用于记录所有依赖包及其精确的版本号。以便新环境部署。
+
+requirements.txt可以通过pip命令自动生成和安装
+
+生成requirements.txt文件
+pip freeze > requirements.txt
+appdirs==1.4.3
+backports.functools-lru-cache==1.5
+beautifulsoup4==4.5.3
+bs4==0.0.1
+cycler==0.10.0
+kiwisolver==1.0.1
+lxml==3.7.3
+matplotlib==2.2.0
+numpy==1.14.1
+pandas==0.22.0
+pyparsing==2.2.0
+python-dateutil==2.6.1
+pytz==2018.3
+six==1.11.0
+virtualenv==15.1.0
+安装requirements.txt依赖
+pip install -r requirements.txt

@@ -16,7 +16,7 @@ Python pip 国内主要镜像
 
 pip install  包名 -i 所选路径
 
-例如 pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple
+例如 pip install aiohttp==2.3.1 -i http://mirrors.aliyun.com/pypi/simple/
 
 2 配制成默认的
 
