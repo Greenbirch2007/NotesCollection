@@ -1,0 +1,40 @@
+Deepin15.7下安装MySQL
+
+https://www.cnblogs.com/zshm/articles/9643348.htmlDeepin15.7下安装MySQL
+
+
+
+ sudo apt-get install mysql-server
+ sudo apt-get install libmysqlclient-dev
+ 
+执行结束以后，并没有提示输入mysql的root密码，所以不能直接登录mysql，需要手动去设置root的密码。
+ 
+修改/etc/mysql/my.cnf
+增加：
+[mysqld]
+
+skip-grant-tables
+
+这两行内容。
+ 
+然后运行
+sudo /etc/init.d/mysql restart
+使my.cnf设置起效。
+ 
+然后mysql -u root进入到mysql
+ 
+use mysql;
+update user set authentication_string=password('你的密码') where user='root';
+quit
+ 
+修改完密码以后，要把my.cnf里面添加的两行内容注销掉
+#[mysqld]
+#skip-grant-tables
+
+ 
+重启mysql，使my.cnf设置起效。
+sudo /etc/init.d/mysql restart
+ 
+运行mysql -u root -p
+输入密码，就可以进入mysql了。
+不过有一个问题，我第一次安装mysql的时候，到了这一步，如果不使用sudo权限就无法进入root。但是我把mysql卸载了，再次重新安装，就没这个问题。真的很奇怪。
