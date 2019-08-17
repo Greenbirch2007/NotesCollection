@@ -1,0 +1,25 @@
+pymysql.err.InternalError: (1698, "Access denied for user 'root'@'localhost'")
+
+
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
+本文链接：https://blog.csdn.net/zhihoudemoon/article/details/89214713
+这里可能是数据库的问题
+先查询数据库的mysql.user 表单
+
+mysql> select user, plugin from mysql.user;
+1
+
+发现是这里的错误 关于auth_socket 请自行查看官方说明
+把这里改一下就可以了
+
+update mysql.user set authentication_string=PASSWORD('newPwd'), plugin='mysql_native_password' where user='root';
+1
+flush privileges;
+1
+再重新启动服务就可以了
+
+systemctl stop mariadb
+1
+systemctl start mariadb
+
