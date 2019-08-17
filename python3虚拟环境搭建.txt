@@ -6,7 +6,7 @@ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv
 
 
 
-virtualenv -p /usr/bin/python3.6  PYENV
+virtualenv -p /usr/bin/python3.5 pyenv
 
 
 在ubuntu16.04下已经预先安装好了python2和Python3所以只管配置虚拟环境就可以了：我推荐使用python的python-venv模块安装不同的虚拟环境
