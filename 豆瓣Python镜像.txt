@@ -1,0 +1,1 @@
+pip install selenium lxml pymysql  -i https://pypi.doubanio.com/simple/
