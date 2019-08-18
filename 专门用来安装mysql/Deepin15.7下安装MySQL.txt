@@ -38,3 +38,9 @@ sudo /etc/init.d/mysql restart
 运行mysql -u root -p
 输入密码，就可以进入mysql了。
 不过有一个问题，我第一次安装mysql的时候，到了这一步，如果不使用sudo权限就无法进入root。但是我把mysql卸载了，再次重新安装，就没这个问题。真的很奇怪。
+
+
+
+安装workbench
+
+sudo apt-get install mysql-workbench
